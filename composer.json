@@ -10,7 +10,6 @@
         "junaidbhura/gravityforms": "*",
         "organikweb/faqs": "*",
         "organikweb/teams": "*",
-        "organikweb/vanilla-timber": "*",
         "roots/bedrock-autoloader": "^1.0",
         "roots/wordpress": "^6.1.1",
         "roots/wp-password-bcrypt": "^1.1",
