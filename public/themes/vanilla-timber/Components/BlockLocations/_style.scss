@@ -3,6 +3,11 @@
     flex-direction: row;
     gap: 48px;
 
+    @include breakpoint(0, md) {
+        flex-direction: column;
+        gap: 0;
+    }
+
     &__titles {
         flex: 2;
         display: flex;
@@ -31,7 +36,11 @@
 
     &__content {
         flex: 2.5;
-        padding: 0 1rem;
+        padding: 0;
+        
+        @include breakpoint(md) {
+            padding: 0 1rem;
+        }
 
         .venues-tabs__map {
             display: none;
@@ -43,4 +52,23 @@
             }
         }
     }
+
+    .venues-tabs__dropdown {
+        display: none;
+      }
+      
+      .venues-tabs__titles {
+        display: flex;
+      }
+      
+      @media (max-width: 768px) {
+        .venues-tabs__dropdown {
+          display: block;
+        }
+      
+        .venues-tabs__titles {
+          display: none;
+        }
+      }
 }
+

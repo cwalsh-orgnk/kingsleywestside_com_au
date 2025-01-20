@@ -1,6 +1,13 @@
 <flynt-component name="BlockLocations" {{- not noComponentSpacing ? ' class="componentSpacing"' }} {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
   <div class="container">
     <div class="venues-tabs">
+        <div class="venues-tabs__dropdown">
+        <select class="venues-tabs__select">
+        {% for venue in venues %}
+            <option value="{{ loop.index0 }}">{{ venue.post_title }}</option>
+        {% endfor %}
+        </select>
+    </div>
       <div class="venues-tabs__titles">
           {% for venue in venues %}
               <button class="button venues-tabs__title h2" data-tab="{{ loop.index0 }}">

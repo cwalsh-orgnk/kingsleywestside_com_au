@@ -21,6 +21,12 @@ flynt-component[name='BlockImageText'] {
     }
   }
 
+  [data-align=center] {
+    @include breakpoint(0,md) {
+      margin-top: var(--flow-space);
+    }
+  }
+
   .highlights {
     display: flex;
     flex-wrap: wrap;
@@ -28,10 +34,12 @@ flynt-component[name='BlockImageText'] {
     margin-top: 32px;
 
     .highlight-wrap {
-      width: calc(50% - 12px);
       display: flex;
+      width: 100%;
+      gap: 12px;
 
       @include breakpoint(md) {
+        width: calc(50% - 12px);
         gap: 30px;
       }
 
@@ -50,9 +58,7 @@ flynt-component[name='BlockImageText'] {
     }
 
     .highlight-content {
-      @include breakpoint(md) {
-        margin-top: 0;
-      }
+      margin-top: 0;
 
       .content {
         margin-block-start: 8px;

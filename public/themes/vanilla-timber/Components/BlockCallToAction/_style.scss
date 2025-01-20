@@ -27,10 +27,11 @@ flynt-component[name='BlockCallToAction'] {
     margin-top: 32px;
 
     .highlight-wrap {
-      width: calc(50% - 12px);
       display: flex;
+      width: 100%;
 
       @include breakpoint(md) {
+        width: calc(50% - 12px);
         gap: 30px;
       }
 
@@ -49,9 +50,7 @@ flynt-component[name='BlockCallToAction'] {
     }
 
     .highlight-content {
-      @include breakpoint(md) {
-        margin-top: 0;
-      }
+      margin-top: 0;
 
       .content {
         margin-block-start: 8px;

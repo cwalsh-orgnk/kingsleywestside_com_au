@@ -73,15 +73,19 @@ flynt-component[name='BlockPageHero'] {
     }
   }
 
-  @media (min-width: $breakpoint-tablet-horizontal) {
+
     .text-wrap {
       position: fixed;
       width: 100%;
       top: initial;
       bottom: 0;
       bottom: 48px;
-      padding: 48px;
+      padding: 0;
       z-index: 1111;
+
+      @include breakpoint(md) {
+        padding: 48px;
+      }
 
       > * {
         flex-basis: 50%;
@@ -113,7 +117,6 @@ flynt-component[name='BlockPageHero'] {
         }
       }
     }
-  }
 
   .splide__track {
     height: 100%;

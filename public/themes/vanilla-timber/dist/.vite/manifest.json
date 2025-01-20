@@ -5,10 +5,10 @@
   },
   "../../../../shared/orgnk-ui-icons/ui-icons.woff2": {
     "file": "assets/ui-icons-D0YT68Ua.woff2",
-    "src": "../../../../shared/orgnk-ui-icons/ui-icons.woff2"
+    "src": "assets/fonts/ui-icons.woff2"
   },
   "Components/BlockCallToAction/script.js": {
-    "file": "assets/script-dNhDB88N.js",
+    "file": "assets/script-Bvk8LTXu.js",
     "name": "script",
     "src": "Components/BlockCallToAction/script.js",
     "isDynamicEntry": true,
@@ -18,7 +18,7 @@
     ]
   },
   "Components/BlockImageText/script.js": {
-    "file": "assets/script-n2oCRHr7.js",
+    "file": "assets/script-baEfWt1d.js",
     "name": "script",
     "src": "Components/BlockImageText/script.js",
     "isDynamicEntry": true,
@@ -27,13 +27,13 @@
     ]
   },
   "Components/BlockLocations/script.js": {
-    "file": "assets/script-DXhTZi57.js",
+    "file": "assets/script-DfY4Nhct.js",
     "name": "script",
     "src": "Components/BlockLocations/script.js",
     "isDynamicEntry": true
   },
   "Components/BlockPageHero/script.js": {
-    "file": "assets/script-CbMR9ZIE.js",
+    "file": "assets/script-CiA8aqqH.js",
     "name": "script",
     "src": "Components/BlockPageHero/script.js",
     "isDynamicEntry": true,
@@ -46,7 +46,7 @@
     ]
   },
   "Components/BlockSplitText/script.js": {
-    "file": "assets/script-Bvk8LTXu.js",
+    "file": "assets/script-dNhDB88N.js",
     "name": "script",
     "src": "Components/BlockSplitText/script.js",
     "isDynamicEntry": true,
@@ -65,7 +65,7 @@
     ]
   },
   "Components/GridEventsLatest/script.js": {
-    "file": "assets/script-BRWonjcF.js",
+    "file": "assets/script-B4CUlmeL.js",
     "name": "script",
     "src": "Components/GridEventsLatest/script.js",
     "isDynamicEntry": true,
@@ -75,7 +75,7 @@
     ]
   },
   "Components/GridPostsArchive/script.js": {
-    "file": "assets/script-B4CUlmeL.js",
+    "file": "assets/script-BRWonjcF.js",
     "name": "script",
     "src": "Components/GridPostsArchive/script.js",
     "isDynamicEntry": true,
@@ -140,7 +140,7 @@
     "isEntry": true
   },
   "assets/editor-style.scss": {
-    "file": "assets/editor-style-Hzi2NYRB.css",
+    "file": "assets/editor-style-CpyxJkI3.css",
     "src": "assets/editor-style.scss",
     "isEntry": true
   },
@@ -174,14 +174,14 @@
   },
   "assets/fonts/ui-icons.woff2": {
     "file": "assets/ui-icons-D0YT68Ua.woff2",
-    "src": "../../../../shared/orgnk-ui-icons/ui-icons.woff2"
+    "src": "assets/fonts/ui-icons.woff2"
   },
   "assets/images/logo.png": {
     "file": "assets/logo-gu4zK_aM.png",
     "src": "assets/images/logo.png"
   },
   "assets/main.js": {
-    "file": "assets/main-wAXyWwyc.js",
+    "file": "assets/main-T4Buew35.js",
     "name": "main",
     "src": "assets/main.js",
     "isEntry": true,
@@ -200,7 +200,7 @@
     ]
   },
   "assets/main.scss": {
-    "file": "assets/main-DNuW4YYG.css",
+    "file": "assets/main-Cb0vp3IK.css",
     "src": "assets/main.scss",
     "isEntry": true
   },
