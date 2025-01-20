@@ -7,7 +7,6 @@
         "php": "^8.0.2",
         "composer/installers": "^2.1",
         "wpengine/advanced-custom-fields-pro": "*",
-        "junaidbhura/gravityforms": "*",
         "organikweb/faqs": "*",
         "organikweb/teams": "*",
         "roots/bedrock-autoloader": "^1.0",
