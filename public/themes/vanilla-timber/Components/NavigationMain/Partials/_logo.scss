@@ -1,0 +1,13 @@
+.logo {
+  block-size: 100%;
+  display: block;
+  flex-shrink: 0;
+  text-decoration: none;
+  width: 100px;
+  height: 100px;
+
+  &-image {
+    block-size: 100%;
+    inline-size: auto;
+  }
+}

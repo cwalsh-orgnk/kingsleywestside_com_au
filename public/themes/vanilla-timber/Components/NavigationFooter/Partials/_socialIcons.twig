@@ -1,0 +1,34 @@
+<div class="business-social-links">
+    <ul class="social-links">
+        {% if globalOptions.linkedin  %}
+            <li class="social-icon">
+                <a href="{{ globalOptions.linkedin }}" target="_blank" rel="noopener">
+                    <div class="icon-wrapper">
+                        <i class="icon linkedin" aria-hidden="true"></i>
+                        <span class="screen-reader-text">linkedin</span>
+                    </div>
+                </a>
+            </li>
+        {%  endif %}
+        {% if globalOptions.instagram  %}
+            <li class="social-icon">
+                <a href="{{ globalOptions.instagram }}" target="_blank" rel="noopener">
+                    <div class="icon-wrapper">
+                        <i class="icon instagram" aria-hidden="true"></i>
+                        <span class="screen-reader-text">instagram</span>
+                    </div>
+                </a>
+            </li>   
+        {% endif %}
+        {% if globalOptions.facebook  %}
+            <li class="social-icon">
+                <a href="{{ globalOptions.facebook }}" target="_blank" rel="noopener">
+                    <div class="icon-wrapper">
+                        <i class="icon facebook" aria-hidden="true"></i>
+                        <span class="screen-reader-text">facebook</span>
+                    </div>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+    </div>

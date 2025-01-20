@@ -1,0 +1,337 @@
+/* stylelint-disable scss/selector-no-redundant-nesting-selector */
+/* stylelint-disable selector-pseudo-element-no-unknown */
+//=======================================================================================================================================================
+// HTML5 base inputs and fields
+//=======================================================================================================================================================
+
+// General styles for inputs and fields
+input[type="reset"],
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="url"],
+input[type="number"],
+select,
+textarea {
+	appearance: none;
+	appearance: none;
+	background-color: var(----color-white);
+	block-size: var(--input-height);
+	border: var(--border-weight) solid var(--color-mid-grey);
+	border-radius: var(--corners);
+	color: var(--color-text);
+	cursor: text;
+	display: block;
+	font-family: var(--font-family-text);;
+	font-weight: 300;
+	inline-size: 100%;
+	line-height: var(--default-line-height);
+	margin-block: 0 var(--input-margin);
+	margin-inline: 0;
+	overflow: hidden;
+	padding-block: 0;
+	padding-inline: var(--input-padding);
+	position: relative;
+	border-radius: 6px;
+	@include transition();
+
+	@include on-state(hover, focus, active) {
+		border-color: var(--color-text)
+	}
+
+	&:disabled {
+		color: rgba( var(--color-navy), 0.5);
+	}
+
+	// Placeholder, these need to be seperate like this
+	&::input-placeholder {
+		color: rgba( var(--color-navy), 0.5);
+		font-family: var(--font-family-text);;
+	}
+
+	// Firefox 18-
+	&:placeholder {
+		color: rgba( var(--color-navy), 0.5);
+		font-family: var(--font-family-text);;
+	}
+
+	// Firefox 19+
+	&::placeholder {
+		color: rgba( var(--color-navy), 0.5);
+		font-family: var(--font-family-text);;
+	}
+
+	// IE
+	&:input-placeholder {
+		color: rgba( var(--color-navy), 0.5);
+		font-family: var(--font-family-text);;
+
+	}
+
+	// Remove the dotted outline FireFox puts on inputs when focused
+	&::-moz-focus-inner {
+		border: 0;
+	}
+
+	.inputs-light & {
+		color: var(----color-white);
+
+		@include on-state(hover, focus, active) {
+			background-color: rgba(var(----color-white), 0.5);
+		}
+
+		&:disabled {
+			color: rgba(var(----color-white), 0.5);
+		}
+
+		// Placeholder, these need to be seperate like this
+		&::input-placeholder {
+			color: rgba(var(----color-white), 0.5);
+		}
+
+		// Firefox 18-
+		&:placeholder {
+			color: rgba(var(----color-white), 0.5);
+		}
+
+		// Firefox 19+
+		&::placeholder {
+			color: rgba(var(----color-white), 0.5);
+		}
+
+		// IE
+		&:input-placeholder {
+			color: rgba(var(----color-white), 0.5);
+		}
+	}
+}
+
+.ginput_container_fileupload {
+	appearance: none;
+	appearance: none;
+	background-color: var(----color-white);
+	min-block-size: var(--input-height);
+	color: var(--color-text);
+	cursor: text;
+	display: block;
+	font-family: var(--font-family-text);;
+	font-weight: 300;
+	inline-size: 100%;
+	line-height: var(--default-line-height);
+	margin-block: 0 var(--input-margin);
+	margin-inline: 0;
+	overflow: hidden;
+	padding-block: 0;
+	position: relative;
+	height: 100%;
+
+	.gfield_description {
+		margin-block: var(--line-break-xs) 0 !important;
+	}
+}
+
+.gform_fileupload_rules {
+	display: none;
+}
+
+
+// Select elements
+select {
+	cursor: pointer;
+	vertical-align: middle;
+
+	&:not([multiple]) {
+		background-position: right var(--input-padding) top 53%;
+		background-repeat: no-repeat;
+		background-size: 10px;
+		padding-inline-end: 40px;
+		@include select-arrow( var(--color-navy));
+	}
+
+	.inputs-light & {
+		color: var(----color-white);
+
+		&:not([multiple]) {
+			@include select-arrow(var(----color-white));
+		}
+	}
+
+	&[multiple] {
+		block-size: auto;
+		padding: 0;
+
+		option {
+			padding-block: 10px;
+			padding-inline: var(--input-padding);
+		}
+	}
+
+	// Remove the dotted outline FireFox puts on select elements when focused
+	&:-moz-focusring {
+		color: transparent;
+		text-shadow: 0 0 0 var(--color-text)
+	}
+
+	&:-moz-focusring * {
+		color: var(--color-text);
+		text-shadow: none;
+	}
+}
+
+// Text areas
+textarea {
+	block-size: auto;
+	line-height: var(--default-line-height);
+	max-inline-size: 100%;
+	padding-block: 8px;
+	padding-inline: var(--input-padding);
+
+	@include on-state(hover, focus, active) {
+		cursor: text;
+	}
+}
+
+// General labels
+label {
+	display: inline-block;
+	font-weight: 600;
+	margin-block: 0 var(--line-break-xs);
+	margin-inline: 0;
+
+	.inputs-light & {
+		color: var(----color-white);
+	}
+}
+
+// Shared radio button and checkbox styling
+input[type="radio"],
+input[type="checkbox"] {
+	appearance: none;
+	appearance: none;
+	block-size: 1px;
+	clip: rect(1px, 1px, 1px, 1px);
+	cursor: pointer;
+	inline-size: 1px;
+	opacity: 0;
+	position: absolute;
+
+	& + label {
+		cursor: pointer;
+		display: block;
+		font-weight: normal;
+		padding-block: 0;
+		padding-inline: calc(var(--checkbox-radio-size) + 15px);
+		position: relative;
+
+		&::before {
+			block-size: var(--checkbox-radio-size);
+			border: var(--border-weight) solid var(--color-mid-grey);
+			border-radius: (var(--corners) / 2);
+			content: '';
+			display: inline-block;
+			inline-size: var(--checkbox-radio-size);
+			inset-block-start: 2px;
+			inset-inline-start: 0;
+			position: absolute;
+			@include transition();
+
+			@include breakpoint(xs) {
+				inset-block-start: 3px;
+			}
+		}
+
+		&::after {
+			block-size: var(--checkbox-radio-size);
+			content: '';
+			display: block;
+			inline-size: var(--checkbox-radio-size);
+			inset-block-start: 2px;
+			inset-inline-start: 0;
+			opacity: 0;
+			position: absolute;
+			@include transition(opacity, transform);
+
+			@include breakpoint(xs) {
+				inset-block-start: 3px;
+			}
+		}
+
+		@include on-state(hover, focus) {
+			&::before {
+				border-color: var(--color-text)
+			}
+		}
+
+		.inputs-light & {
+
+			@include on-state(hover, focus) {
+				&::before {
+					background-color: rgba(var(----color-white), 0.5);
+				}
+			}
+		}
+	}
+
+	// Manually add a focus ring to the psuedo element for keyboard users, because it cannot naturally receive focus
+	[data-whatintent='keyboard'] & {
+		&:focus + label {
+			&::before {
+				border-color: var(--color-text);
+				box-shadow: var( --focus-ring);
+			}
+		}
+	}
+}
+
+// Checkboxes
+input[type="checkbox"] {
+	& + label {
+		&::after {
+			@include pseudo-icon( e018, strip-unit( var(--checkbox-radio-size) ),  var(--color-accent) );
+			padding: 0 !important;
+			transform: scale(0.5);
+		}
+	}
+
+	&:checked {
+		& + label {
+			&::after {
+				opacity: 1;
+
+				.inputs-light & {
+					color: var(----color-white);
+				}
+			}
+		}
+	}
+}
+
+// Radio buttons
+input[type="radio"] {
+	& + label {
+		&::before {
+			border-radius: var(--checkbox-radio-size);
+		}
+
+		&::after {
+			background-color:  var(--color-accent);
+			border-radius: var(--checkbox-radio-size);
+			transform: scale(0);
+
+			.inputs-light & {
+				background-color: var(----color-white);
+			}
+		}
+	}
+
+	&:checked {
+		& + label {
+			&::after {
+				opacity: 1;
+				transform: scale(0.5);
+			}
+		}
+	}
+}

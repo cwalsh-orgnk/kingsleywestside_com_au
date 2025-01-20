@@ -1,0 +1,76 @@
+<?php
+
+namespace Flynt\Components\BlockCommittee;
+
+use Flynt\FieldVariables;
+
+function getACFLayout(): array
+{
+    return [
+        'name' => 'blockCommittee',
+        'label' => __('Block: Committee Members', 'flynt'),
+        'sub_fields' => [
+            [
+                'label' => __('Content', 'flynt'),
+                'name' => 'contentTab',
+                'type' => 'tab',
+                'placement' => 'top',
+                'endpoint' => 0,
+            ],
+            [
+                'label' => __('Text', 'flynt'),
+                'name' => 'contentHtml',
+                'type' => 'wysiwyg',
+                'delay' => 0,
+                'media_upload' => 0,
+                'required' => 1,
+            ],
+            [
+                'label' => 'Committee Members',
+                'name' => 'committee_members',
+                'type' => 'repeater',
+                'collapsed' => '',
+                'min' => 0,
+                'max' => 0,
+                'layout' => 'row',
+                'button_label' => 'Add Member',
+                'sub_fields' => [
+                    [
+                        'label' => 'Name',
+                        'name' => 'name',
+                        'type' => 'text'
+                    ],
+                    [
+                        'label' => 'Positon',
+                        'name' => 'position',
+                        'type' => 'text'
+                    ],
+                    [
+                        'label' => 'Email',
+                        'name' => 'email',
+                        'type' => 'text'
+                    ],
+                ]
+            ],
+            [
+                'label' => __('Options', 'flynt'),
+                'name' => 'optionsTab',
+                'type' => 'tab',
+                'placement' => 'top',
+                'endpoint' => 0
+            ],
+            [
+                'label' => '',
+                'name' => 'options',
+                'type' => 'group',
+                'layout' => 'row',
+                'sub_fields' => [
+                    FieldVariables\getTheme(),
+                    FieldVariables\getSize(),
+                    FieldVariables\getAlignment(),
+                    FieldVariables\getTextAlignment()
+                ]
+            ]
+        ]
+    ];
+}

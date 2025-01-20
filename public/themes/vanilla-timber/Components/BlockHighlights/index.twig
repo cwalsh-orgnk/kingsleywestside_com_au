@@ -1,0 +1,63 @@
+<flynt-component name="BlockHighlights" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container"data-theme="dark" {{ highlightsPosition ? 'data-highlights-position="' ~ highlightsPosition ~ '"' }}>
+
+    <div data-size="medium" data-align="center" class="content" data-theme="dark">
+
+          {{ contentHtml|e('wp_kses_post') }}
+          {% if image %}
+            <figure class="figure" data-size="medium" data-align="center">
+            {% if image.post_mime_type == 'image/svg+xml' %}
+              <img
+                class="figure-image-svg lazyload"
+                src="{{ placeholderImage(image.width, image.height, 'rgba(125, 125, 125, 0.1)') }}"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                data-src="{{ image.src }}"
+                alt="{{ image.alt|e }}">
+            {% else %}
+              <img
+                class="figure-image lazyload"
+                src="{{ image.src|resizeDynamic(768) }}"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                srcset="{{ placeholderImage(image.width, image.height, 'rgba(125, 125, 125, 0.1)') }}"
+                data-srcset="
+                  {{ image.src|resizeDynamic(1920) }} 1920w,
+                  {{ image.src|resizeDynamic(1600) }} 1600w,
+                  {{ image.src|resizeDynamic(1440) }} 1440w,
+                  {{ image.src|resizeDynamic(1366) }} 1366w,
+                  {{ image.src|resizeDynamic(1024) }} 1024w,
+                  {{ image.src|resizeDynamic(768) }} 768w,
+                  {{ image.src|resizeDynamic(640) }} 640w"
+                data-sizes="auto"
+                alt="{{ image.alt|e }}">
+            {% endif %}
+          </figure>
+        {% endif %}
+    </div>
+
+    {% if highlights is not empty %}
+      <div class="highlights">
+        {% for highlight in highlights %}
+          <div class="highlight-wrap">
+            {% if highlight.image %}
+              <figure class="highlight-figure">
+                <img
+                  class="highlight-image lazyload"
+                  src="{{ highlight.image.src|resizeDynamic(768) }}"
+                  width="{{ highlight.image.width }}"
+                  height="{{ highlight.image.height }}"
+                  alt="{{ highlight.image.alt|e }}">
+              </figure>
+            {% endif %}
+            {% if highlight.content %}
+              <div class="highlight-content">
+                {{ highlight.content|e('wp_kses_post') }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</flynt-component>

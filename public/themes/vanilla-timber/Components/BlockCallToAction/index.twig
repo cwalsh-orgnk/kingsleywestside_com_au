@@ -1,0 +1,52 @@
+<flynt-component name="BlockCallToAction" class="componentSpacing" data-theme="dark">
+  <div class="container">
+      <div class="left-content">
+            {{ leftContentHtml|e('wp_kses_post') }}
+      </div>
+      <div class="right-content">
+            {{ rightContentHtml|e('wp_kses_post') }}
+      </div>
+  </div>
+</flynt-component>
+{% if globalOptions.sponsors is not empty %}
+<section class="section section-simple-logos-list section-simple-content section-logos section-white">
+    <div class="section-wrap">
+        <div class="section-list">
+            <div class="logos-slider" data-autoplay="true">
+                <div class="logos-list splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            {% for item in globalOptions.sponsors %}
+                                {% set image = item.image %}
+                                {% if image.src %}
+                                <li class="logo splide__slide">
+                                    <figure class="figure">
+                                        <img
+                                            class="figure-image lazyload"
+                                            src="{{ image.src|resizeDynamic(0, 540) }}"
+                                            width="{{ (540 * image.aspect)|round }}"
+                                            height="540"
+                                            srcset="{{ placeholderImage((540 * image.aspect)|round, 540, 'rgba(125, 125, 125, 0.1)') }}"
+                                            data-srcset="
+                                                {{ image.src|resizeDynamic(0, 1080) }} {{ (image.aspect * 1080)|round }}w,
+                                                {{ image.src|resizeDynamic(0, 860) }} {{ (image.aspect * 860)|round }}w,
+                                                {{ image.src|resizeDynamic(0, 540) }} {{ (image.aspect * 540)|round }}w,
+                                                {{ image.src|resizeDynamic(0, 385) }} {{ (image.aspect * 385)|round }}w,
+                                                {{ image.src|resizeDynamic(0, 250) }} {{ (image.aspect * 250)|round }}w"
+                                            data-sizes="auto"
+                                            alt="{{ image.alt|e }}">
+                                        {% if image.caption %}
+                                            <figcaption class="figure-caption">{{ image.caption|e }}</figcaption>
+                                        {% endif %}
+                                    </figure>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

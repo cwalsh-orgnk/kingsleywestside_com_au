@@ -1,0 +1,32 @@
+<flynt-component name="BlockLocations" {{- not noComponentSpacing ? ' class="componentSpacing"' }} {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container">
+    <div class="venues-tabs">
+      <div class="venues-tabs__titles">
+          {% for venue in venues %}
+              <button class="button venues-tabs__title h2" data-tab="{{ loop.index0 }}">
+                  {{ venue.post_title }}
+              </button>
+          {% endfor %}
+      </div>
+      <div class="venues-tabs__content">
+          {% for venue in venues %}
+              <div class="venues-tabs__map" data-tab="{{ loop.index0 }}" style="display: none;">
+                      {% if venue.meta('gmaps_embed') %}
+                      <iframe
+                          src="{{ venue.meta('gmaps_embed') | e }}"
+                          width="600"
+                          height="450"
+                          style="border:0;"
+                          allowfullscreen=""
+                          loading="lazy"
+                          referrerpolicy="no-referrer-when-downgrade">
+                      </iframe>
+                  {% else %}
+                      <p>Map not available for this venue.</p>
+                  {% endif %}
+              </div>
+          {% endfor %}
+      </div>
+    </div> 
+  </div>
+</flynt-component>

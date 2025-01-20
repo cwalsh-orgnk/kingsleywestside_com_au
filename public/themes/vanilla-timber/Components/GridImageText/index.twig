@@ -1,0 +1,67 @@
+<flynt-component name="GridImageText" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container" data-flow="layout">
+    {% if preContentHtml %}
+      <div data-size="medium" data-align="{{ titleAlignment }}" data-text-align="{{ titleAlignment }}">
+        {{ preContentHtml|e('wp_kses_post') }}
+      </div>
+    {% endif %}
+    <ul class="grid" {{ options.card ? 'data-card="true"' }} {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+      {% for item in items %}
+        {% if item.image or item.contentHtml %}
+          <li class="item {{- options.card ? ' boxBorder' -}}">
+              {% if item.link %}
+                  <a target="{{ item.link.target|e }}" href="{{ item.link.url|e }}">
+              {% endif %}
+              {% if item.image %}
+                <figure class="figure">
+                  {% if item.image.post_mime_type == 'image/svg+xml' %}
+                    <img
+                      class="figure-image-svg lazyload"
+                      src="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                      width="768"
+                      height="{{ (768 / 3 * 2)|round }}"
+                      data-src="{{ item.image.src }}"
+                      alt="{{ item.image.alt|e }}"
+                    >
+                  {% else %}
+                    <img
+                      class="figure-image lazyload"
+                      src="{{ item.image.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
+                      width="768"
+                      height="{{ (768 / 3 * 2)|round }}"
+                      srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                      data-srcset="
+                        {{ item.image.src|resizeDynamic(1920, (1920 / 3 * 2)|round, 'center') }} 1920w,
+                        {{ item.image.src|resizeDynamic(1600, (1600 / 3 * 2)|round, 'center') }} 1600w,
+                        {{ item.image.src|resizeDynamic(1440, (1440 / 3 * 2)|round, 'center') }} 1440w,
+                        {{ item.image.src|resizeDynamic(1366, (1366 / 3 * 2)|round, 'center') }} 1366w,
+                        {{ item.image.src|resizeDynamic(1024, (1024 / 3 * 2)|round, 'center') }} 1024w,
+                        {{ item.image.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
+                        {{ item.image.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
+                      data-sizes="auto"
+                      alt="{{ item.image.alt|e }}">
+                  {% endif %}
+                </figure>
+              {% endif %}
+              {% if item.contentHtml %}
+                <div class="content {{ options.card ? 'boxPadding' }}">
+                  {% if item.link %}
+                    <div class="link-icon">
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.70797 1.6841C9.708 1.2239 9.33434 0.850238 8.87414 0.850265L2.98352 0.850624C2.52332 0.850651 2.14961 1.22436 2.14958 1.68456C2.14955 2.14477 2.52322 2.51843 2.98342 2.5184L6.8657 2.51633L1.21773 8.1643C0.89189 8.49014 0.891858 9.01661 1.21766 9.34242C1.54347 9.66822 2.06994 9.66819 2.39579 9.34235L8.04191 3.69622L8.04352 7.57482C8.04349 8.03502 8.41715 8.40869 8.87736 8.40866C9.33756 8.40863 9.71127 8.03492 9.7113 7.57472L9.71166 1.6841L9.70797 1.6841Z" fill="#384B93"/>
+                      </svg>
+                    </div>
+
+                  {% endif %}
+                  {{ item.contentHtml|e('wp_kses_post') }}
+                </div>
+              {% endif %}
+            {% if item.link %}
+              </a>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</flynt-component>

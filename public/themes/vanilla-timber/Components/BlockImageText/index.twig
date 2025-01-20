@@ -1,0 +1,71 @@
+<flynt-component name="BlockImageText" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container" {{ imagePosition ? 'data-image-position="' ~ imagePosition ~ '"' }}>
+    {% if images|length > 0 %}
+      <div class="masonry-grid">
+        {% for image in images %}
+          <div class="masonry-item">
+            <figure>
+              <img
+                src="{{ placeholderImage(image.width, image.height, 'rgba(125, 125, 125, 0.1)') }}"
+                data-src="{{ image.src }}"
+                class="lazyload"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                alt="{{ image.alt|e }}">
+              {% if image.caption %}
+                <figcaption>{{ image.caption|e }}</figcaption>
+              {% endif %}
+            </figure>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      {# Fallback to a single image if no gallery exists #}
+      {% if image %}
+        <figure class="figure" data-size="medium" data-align="center">
+          <img
+            class="figure-image lazyload"
+            src="{{ image.src|resizeDynamic(768) }}"
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            alt="{{ image.alt|e }}">
+        </figure>
+      {% endif %}
+    {% endif %}
+    <div data-size="medium" data-align="center">
+      {{ contentHtml|e('wp_kses_post') }}
+          {% if highlights is not empty %}
+            <div class="highlights">
+              {% for highlight in highlights %}
+                <div class="highlight-wrap">
+                  {% if highlight.icon %}
+                    <figure class="highlight-figure">
+                      <img
+                        class="highlight-image lazyload"
+                        src="{{ highlight.icon.src|resizeDynamic(768) }}"
+                        width="{{ highlight.icon.width }}"
+                        height="{{ highlight.icon.height }}"
+                        alt="{{ highlight.icon.alt|e }}">
+                    </figure>
+                  {% endif %}
+                  {% if highlight.text or highlight.title %}
+                    <div class="highlight-content">
+                      {% if highlight.title %}
+                        <h6 class="title">
+                          {{ highlight.title}}
+                        </h6>
+                      {% endif %}
+                      {% if highlight.text %}
+                        <div class="content">
+                          {{ highlight.text|e('wp_kses_post') }}
+                        </div>
+                      {% endif  %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+    </div>
+  </div>
+</flynt-component>

@@ -1,0 +1,22 @@
+<ul class="menu"  data-theme="">
+  {% for item in items %}
+    <li class="item {{- item.current ? ' current-menu-item' }}  {% if item.children is not empty %} menu-item-has-children {% endif %}">
+      <a class="link h6" href="{{ item.link|e('esc_url') }}" {{- item.is_external or item.is_target_blank ? ' target="_blank" rel="noopener noreferrer"' -}}>{{ item.title }}</a>
+            
+      {% if item.children is not empty %}
+        <ul class="submenu">
+          {% for child in item.children %}
+            <li class="submenu-item {{ child.current ? ' current-menu-item' : '' }}">
+              <a class="link h6" href="{{ child.link|e('esc_url') }}" {{ child.is_external or child.is_target_blank ? ' target="_blank" rel="noopener noreferrer"' : '' }}>
+                {{ child.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+  <a class="primary button button" href="https://clubshop.macron.com/perth/kingsley-westside-junior-football-club">
+    Club Shop
+  </a>
+</ul>

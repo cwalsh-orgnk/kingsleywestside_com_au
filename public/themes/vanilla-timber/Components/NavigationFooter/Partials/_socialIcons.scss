@@ -1,0 +1,132 @@
+//=======================================================================================================================================================
+// Social links
+//=======================================================================================================================================================
+
+.business-social-links {
+    display: inline-flex;
+    inline-size: 100%;
+
+    ul.social-links {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: -5px;
+
+        li {
+            margin: 0;
+            padding: 5px;
+
+            a {
+                align-items: center;
+                border-radius: 100px;
+                display: flex;
+                text-decoration: none;
+
+                @include on-state(hover, focus) {
+                    .icon-wrapper {
+                        background-color: var(--color-white);
+                        border-color:  var(--color-white);
+                        box-shadow: none;
+                    }
+
+                    .icon::before {
+                        color: var(--color-navy);
+                    }
+                }
+            }
+
+            .icon-wrapper {
+                align-items: center;
+                block-size: calc(44px - 4px);
+                border-radius: 100px;
+                color: var(--color-white);
+                display: inline-flex;
+                flex-direction: column;
+                inline-size: calc(44px - 4px);
+                justify-content: center;
+                min-inline-size: calc(44px - 4px);
+                @include transition(color, background, border, box-shadow);
+
+                @include breakpoint(xs) {
+                    block-size: 44px;
+                    inline-size: 44px;
+                    min-inline-size: 44px;
+                }
+            }
+
+            .icon {
+                display: block;
+
+                &::before {
+                    color: var(--color-white);
+                    content: '';
+                    display: block;
+                    font-family: 'social-icons';
+                    font-style: normal;
+                    font-weight: normal;
+                    line-height: 18px;
+                    @include font-size(18);
+                    @include transition();
+                }
+
+                &.facebook::before {
+                    content: '\ea01';
+                }
+
+                &.instagram::before {
+                    content: '\ea02';
+                }
+
+                &.twitter::before {
+                    content: '\ea03';
+                }
+
+                &.youtube::before {
+                    content: '\ea04';
+                }
+
+                &.vimeo::before {
+                    content: '\ea05';
+                }
+
+                &.linkedin {
+                    margin-block-start: -2px;
+                    
+                    &::before {
+                        content: '\ea06';
+                    }
+                }
+
+                &.pinterest::before {
+                    content: '\ea07';
+                }
+
+                &.tumblr::before {
+                    content: '\ea08';
+                }
+
+                &.dribbble::before {
+                    content: '\ea09';
+                }
+
+                &.behance::before {
+                    content: '\ea10';
+                }
+
+                &.whatsapp::before {
+                    content: '\ea11';
+                }
+
+                &.telegram::before {
+                    content: '\ea12';
+                }
+            }
+
+            .label {
+                display: block;
+                margin-block: 0;
+                margin-inline: var(--flow-space);
+            }
+        }
+    }
+}

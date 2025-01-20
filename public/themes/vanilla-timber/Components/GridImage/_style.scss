@@ -1,0 +1,83 @@
+flynt-component[name='GridImage'] {
+  .grid {
+    --grid-columns: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--column-gap);
+    list-style: none;
+    padding: 0;
+    --flow-space: 1rem;
+
+    .item {
+      max-width: calc(16.6666667% - var(--column-gap));
+      width: 100%;
+      display: flex;
+      flex-grow: 1;
+      margin: auto 0;
+    }
+
+    a {
+      text-decoration: none;
+
+      @include on-state(hover, focus) {
+
+        figure img {
+          scale: 1.1;
+        }
+
+        .link-icon {
+          &:after {
+            scale: 50;
+          }
+
+          svg path {
+            fill: white;
+          }
+        }
+      }
+    }
+
+    figure {
+      overflow: hidden;
+
+      img {
+        @include transition(scale)
+      }
+    }
+
+    svg path {
+      @include transition(fill)
+    }
+
+    &[data-card='true']{
+      --column-gap: var(--flow-space);
+
+      .content {
+        position: relative;
+        margin-block-start: 0;
+
+        .link-icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .item {
+    ul {
+      list-style-position: outside;
+      list-style-type: initial;
+      padding-inline-start: 0;
+
+      li {
+        margin-inline-start: 1em;
+      }
+    }
+
+    .figure-image-svg {
+      aspect-ratio: 3 / 2;
+    }
+  }
+}

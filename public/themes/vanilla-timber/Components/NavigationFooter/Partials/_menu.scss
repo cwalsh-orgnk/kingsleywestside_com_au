@@ -1,0 +1,26 @@
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--flow-space);
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  flex-direction: column;
+  text-align: left;
+
+  .link {
+    color: currentColor;
+    text-decoration: none;
+    font-family: var(--font-family-nav);
+    font-weight: 600;
+    @include transition(color);
+
+    @include on-state(hover,focus) {
+      color: var(--color-red);
+    }
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    text-align: left;
+  }
+}

@@ -1,0 +1,253 @@
+flynt-component[name='BlockCallToAction'] {
+  @media (min-width: $breakpoint-tablet-horizontal) {
+    .container {
+      display: flex;
+      gap: var(--column-gap);
+      justify-content: space-around;
+
+      > * {
+        flex-basis: 50%;
+        margin-block-start: 0;
+      }
+
+      &[data-image-position='left'] {
+        flex-direction: row;
+      }
+
+      &[data-image-position='right'] {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 32px;
+
+    .highlight-wrap {
+      width: calc(50% - 12px);
+      display: flex;
+
+      @include breakpoint(md) {
+        gap: 30px;
+      }
+
+      figure {
+        min-width: 52px;
+        height: 52px;
+
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+          object-position: left;
+
+        }
+      }
+    }
+
+    .highlight-content {
+      @include breakpoint(md) {
+        margin-top: 0;
+      }
+
+      .content {
+        margin-block-start: 8px;
+      }
+    }
+
+    h6 {
+      color: var(--color-navy-light);
+    }
+  }
+
+  .masonry-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 12px;
+    margin: -10px; // Adjust for gutter spacing
+  }
+  
+  .masonry-item {
+    padding: 10px;
+    width: 33.333%; // 3 columns; adjust as needed for responsive
+    box-sizing: border-box;
+    flex-grow: 1;
+
+    figure {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: 0; // Optional styling
+      height: 100%;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        min-width: 100%;
+        min-height: 100%;
+        height: auto;
+        width: auto;
+        object-fit: cover;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1005;  
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .masonry-item {
+      width: 50%; // 2 columns on smaller screens
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .masonry-item {
+      width: 100%; // Single column on very small screens
+    }
+  }
+}
+
+
+.section-simple-logos-list {
+}
+.logos-list {
+    padding: 15px 0;
+    width: 100%;
+    margin: 0 auto;
+
+    .splide__track {
+        height: 100%;
+
+        .logo {
+            margin: 0 32px;
+            max-width: 200px;
+            max-height: 90px;
+            width: auto;
+            height: auto;
+
+            @include breakpoint(sm) {
+                margin: 0 48px;
+            }
+
+            figure {
+              height: 90px;
+              
+              img {
+                height: 100%;
+                object-fit: contain;
+              }
+            }
+        }
+    }
+
+    .splide__arrows {
+        display: none;
+    }
+
+    .splide__list {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .splide__slide {
+        height: 100%;
+        width: 100%;
+
+        &.logo {
+            outline: initial;
+        }
+    }
+
+    .image-cover {
+        display: block;
+        max-height: 70px;
+        width: auto;
+        margin: 0 auto;
+
+        @include breakpoint(sm) {
+            max-width: 200px;
+            max-height: 90px;
+            height: auto;
+        }
+    }
+
+    .splide__pagination {
+        transform: translate(-50%, 100%);
+        bottom: -0.5em;
+
+        .splide__pagination__page.is-active {
+
+        }
+    }
+}
+
+.logo-list {
+
+
+    .logo {
+        width: 25%;
+        background-color: #fff;
+        flex-direction: column;
+
+        @include breakpoint(sm) {
+            width: 16.66666%;
+        }
+
+        .logo-wrapper {
+            background-color: #fff;
+            padding: 0;
+            flex-direction: column;
+        }
+
+        .logo-preview {
+            background-color: #fff;
+
+            .title {
+                text-align: center;
+                width: auto;
+                display: block;
+            }
+        }
+
+        .ratio-sizer {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+            padding-top: 100%;
+            background-color: white;
+            @include transition(transform 0.7s);
+        }
+
+        .logo-thumb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            min-width: 100%;
+            min-height: 100%;
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            margin-bottom: 0;
+        }
+    }
+}

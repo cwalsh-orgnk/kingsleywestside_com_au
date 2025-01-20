@@ -1,0 +1,79 @@
+{% if posts|length > 0 %}
+  <flynt-component name="GridPostsLatest" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+    <div class="container" data-flow="layout">
+      <div class="post-wrap">
+        <div class="first-post-container">
+          {% if preContentHtml %}
+            <div class="section-header" data-size="medium" data-align="left" data-text-align="left">
+              {{ preContentHtml|e('wp_kses_post') }}
+            </div>
+          {% endif %}
+          {% set firstPost = posts[0] %}
+          <div class="first-post-content">
+                      {% if firstPost.thumbnail %}
+              <figure class="figure">
+                <img
+                  class="first-post-image lazyload"
+                  src="{{ firstPost.thumbnail.src|resizeDynamic(1110, (1110 / 2)|round, 'center') }}"
+                  width="1110"
+                  height="{{ (1110 / 2)|round }}"
+                  srcset="{{ placeholderImage(1110, (1110 / 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                  data-srcset="
+                    {{ firstPost.thumbnail.src|resizeDynamic(1920, (1920 / 2)|round, 'center') }} 1920w,
+                    {{ firstPost.thumbnail.src|resizeDynamic(1600, (1600 / 2)|round, 'center') }} 1600w,
+                    {{ firstPost.thumbnail.src|resizeDynamic(1440, (1440 / 2)|round, 'center') }} 1440w,
+                    {{ firstPost.thumbnail.src|resizeDynamic(1366, (1366 / 2)|round, 'center') }} 1366w,
+                    {{ firstPost.thumbnail.src|resizeDynamic(1024, (1024 / 2)|round, 'center') }} 1024w,
+                    {{ firstPost.thumbnail.src|resizeDynamic(768, (768 / 2)|round, 'center') }} 768w,
+                    {{ firstPost.thumbnail.src|resizeDynamic(640, (640 / 2)|round, 'center') }} 640w"
+                  data-sizes="auto"
+                  alt="{{ firstPost.thumbnail.alt|e ?: firstPost.title }}">
+              </figure>
+            {% endif %}
+            <div class="content">
+              <h4 class="headline">{{ firstPost.title }}</h4>
+              <p>{{ firstPost.excerpt.read_more(false)|split(' ')|slice(0, 30)|join(' ') ~ '...' }}</p>
+            </div>
+          </div>
+        </div>
+
+      <!-- Grid for remaining posts -->
+        <ul class="grid" {{ options.maxColumns ? 'data-max-columns="' ~ options.maxColumns ~ '"' }}>
+          {% for post in posts[1:] %}
+            {% set aria_labelledby_id = uuid ~ '-' ~ loop.index %}
+            <li class="post" id="{{ aria_labelledby_id }}" {% if options.theme == 'white' %} data-theme="light" {% else %} data-theme="reset"{% endif %}>
+              <a class="link" href="{{ post.link|e('esc_url') }}" aria-labelledby="{{ aria_labelledby_id }}">
+                {% if post.thumbnail %}
+                  <figure class="figure">
+                    <img
+                      class="post-image figure-image lazyload"
+                      src="{{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }}"
+                      width="768"
+                      height="{{ (768 / 3 * 2)|round }}"
+                      srcset="{{ placeholderImage(768, (768 / 3 * 2)|round, 'rgba(125, 125, 125, 0.1)') }}"
+                      data-srcset="
+                        {{ post.thumbnail.src|resizeDynamic(1920, (1920 / 3 * 2)|round, 'center') }} 1920w,
+                        {{ post.thumbnail.src|resizeDynamic(1600, (1600 / 3 * 2)|round, 'center') }} 1600w,
+                        {{ post.thumbnail.src|resizeDynamic(1440, (1440 / 3 * 2)|round, 'center') }} 1440w,
+                        {{ post.thumbnail.src|resizeDynamic(1366, (1366 / 3 * 2)|round, 'center') }} 1366w,
+                        {{ post.thumbnail.src|resizeDynamic(1024, (1024 / 3 * 2)|round, 'center') }} 1024w,
+                        {{ post.thumbnail.src|resizeDynamic(768, (768 / 3 * 2)|round, 'center') }} 768w,
+                        {{ post.thumbnail.src|resizeDynamic(640, (640 / 3 * 2)|round, 'center') }} 640w"
+                      data-sizes="auto"
+                      alt="{{ post.thumbnail.alt|e ?: post.title }}">
+                  </figure>
+                {% endif %}
+                <div class="content-wrap">
+                  <div class="content boxPaddingSmall">
+                    <span class="small">{{ post.post_date|date('F j, Y') }}</span>
+                    <h2 class="h6">{{ post.title }}</h2>
+                  </div>
+                </div>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </flynt-component>
+{% endif %}

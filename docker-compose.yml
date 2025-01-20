@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./.docker/nginx/Dockerfile
+    image: 'organikweb/nginx:1.0.0'
+    ports:
+      - 8000:80
+    volumes:
+      - './:/var/www/html'
+    depends_on:
+      - php
+  php:
+    build:
+      context: .
+      dockerfile: ./.docker/php/Dockerfile
+    image: 'organikweb/wp-php8.0:1.0.0'
+    volumes:
+      - './:/var/www/html'
+    expose:
+      - 9000
+    environment:
+      WORDPRESS_URL: 'http://localhost:8000'
+      WORDPRESS_TITLE: 'An Organik Web Site'
+      WORDPRESS_ADMIN_USER: 'Developer'
+      WORDPRESS_ADMIN_PASSWORD: 'developer1'
+      WORDPRESS_ADMIN_EMAIL: 'hello@organikweb.com.au'
+    depends_on:
+      mysql:
+        condition: service_healthy
+  mysql:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+    volumes:
+      - 'mysql_data:/var/lib/mysql'
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 2s
+        retries: 10
+volumes:
+  mysql_data:

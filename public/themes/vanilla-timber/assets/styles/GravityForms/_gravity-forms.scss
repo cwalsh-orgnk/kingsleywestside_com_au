@@ -1,0 +1,541 @@
+//=======================================================================================================================================================
+// Gravity forms base styles
+//=======================================================================================================================================================
+
+.gform_wrapper {
+    form {
+        inline-size: 100%;
+    }
+
+    .gform_heading {
+        display: block;
+        inline-size: 100%;
+        margin-block: 0 var(--input-margin);
+        margin-inline: 0;
+
+        .gform_title {
+            display: block;
+            inline-size: 100%;
+            margin: 0;
+        }
+
+        .gform_description {
+            display: block;
+            inline-size: 100%;
+            margin-block: var(--input-margin) 0;
+            margin-inline: 0;
+        }
+    }
+
+    // Wrappers
+    .gform_body,
+    .gform_footer {
+        inline-size: 100%;
+    }
+
+    // Wrapper for all fields
+    .gform_fields {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin-block: 0;
+        margin-inline:  calc(0px - var(--gutters));
+    }
+
+    // Each field
+    .gfield {
+        inline-size: 100%;
+        padding-block: 0;
+        padding-inline: var(--gutters);
+        margin-block-start: var(--flow-space);
+
+        .gfield_label {
+            display: inline-block;
+            font-weight: 600;
+            margin-block-end: var(--line-break-xs);
+        }
+
+        // Override the inline width that Gravity Forms puts on textareas when resized, and set the default height
+        textarea {
+            block-size: 150px;
+            inline-size: 100% !important;
+        }
+
+        &.hidden_label {
+            .gfield_label {
+                display: none;
+            }
+        }
+
+        input[type=reset], input[type=text], input[type=tel], input[type=email], input[type=search], input[type=password], input[type=url], input[type=number], select, textarea {
+            margin: 0;
+        }
+    }
+
+    .gfield_description {
+        display: block;
+        font-size: var(--font-size-body-small);
+        
+        margin-block: 0;
+        margin-inline: 0;
+    }
+
+    .validation_message {
+        font-style: normal;
+    }
+
+    .gfield_checkbox,
+    .gfield_radio {
+        list-style: none;
+        margin-block: 0 var(--input-margin);
+        margin-inline: 0;
+
+        li {
+            margin-block: 0 var(--line-break-xs);
+            margin-inline: 0;
+
+            &:last-child {
+                margin: 0;
+            }
+
+            label {
+                margin: 0;
+            }
+        }
+
+        // input {
+
+        // }
+    }
+
+    .gfield_radio {
+        input[type="text"] {
+            display: inline-block;
+            inline-size: auto;
+        }
+    }
+
+    // Fields with subfields - name field for example
+    .ginput_complex {
+        display: flex;
+        flex-wrap: wrap;
+        margin-block: 0;
+        margin-inline:  calc(0px - var(--gutters));
+
+        label {
+            display: block;
+            font-weight: normal;
+            margin-block: -10px var(--input-margin);
+            margin-inline: 0;
+        }
+
+        .name_prefix,
+        .name_suffix {
+            inline-size: 100%;
+            padding-block: 0;
+            padding-inline: var(--gutters);
+
+            @include breakpoint(xs) {
+                inline-size: 20%;
+            }
+        }
+
+        .name_first,
+        .name_middle,
+        .name_last {
+            flex-grow: 1;
+            inline-size: 100%;
+            padding-block: 0;
+            padding-inline: var(--gutters);
+
+            @include breakpoint(xs) {
+                inline-size: 40%;
+            }
+        }
+    }
+
+    // input.datepicker_with_icon {
+    //     display: inline-block;
+    //     width: auto;
+    // }
+
+    // Date dropdowns
+    .gfield_date_month,
+    .gfield_date_dropdown_month {
+        display: inline-block;
+        inline-size: auto;
+        margin-inline-end: 1%;
+    }
+
+    .gfield_date_day,
+    .gfield_date_dropdown_day {
+        display: inline-block;
+        inline-size: auto;
+        margin-inline-end: 1%;
+    }
+
+    .gfield_date_year,
+    .gfield_date_dropdown_year {
+        display: inline-block;
+        inline-size: auto;
+    }
+
+    .gfield_time_hour {
+        input {
+            display: inline-block;
+            inline-size: inherit;
+        }
+
+        label {
+            display: block;
+        }
+    }
+
+    .gfield_time_minute {
+        inline-size: 30%;
+    }
+
+    .gfield_time_ampm {
+        inline-size: 20%;
+    }
+
+    // Field width classes
+    .ginput_left,
+    .ginput_right {
+
+        @include breakpoint(xs) {
+            inline-size: 50%;
+        }
+    }
+
+    .gf_left_half,
+    .gf_right_half,
+    .gfield--width-half {
+
+        @include breakpoint(xs) {
+            inline-size: 50%;
+        }
+    }
+
+    .gf_left_third,
+    .gf_middle_third,
+    .gf_right_third,
+    .gfield--width-third {
+
+        @include breakpoint(sm) {
+            inline-size: 33.33336%;
+        }
+    }
+
+    .gf_first_quarter,
+    .gf_second_quarter,
+    .gf_third_quarter,
+    .gf_fourth_quarter,
+    .gfield--width-quarter {
+
+        @include breakpoint(xs) {
+            inline-size: 50%;
+        }
+
+        @include breakpoint(md) {
+            inline-size: 25%;
+        }
+    }
+
+    // Inline / no width fields
+    .gf_inline {
+        inline-size: auto;
+    }
+
+    // List fields
+    .gfield_list {
+        margin: 0;
+    }
+
+    .gf_list_2col li {
+        inline-size: 50%;
+    }
+
+    .gf_list_3col li {
+        inline-size: 33.33336%;
+    }
+
+    .gf_list_4col li {
+        inline-size: 25%;
+    }
+
+    .gf_list_5col li {
+        inline-size: 20%;
+    }
+
+    .gf_list_inline li {
+        display: inline-block;
+    }
+
+    .gf_list_height_25 li {
+        block-size: 25px;
+    }
+
+    .gf_list_height_50 li {
+        block-size: 50px;
+    }
+
+    .gf_list_height_75 li {
+        block-size: 75px;
+    }
+
+    .gf_list_height_100 li {
+        block-size: 100px;
+    }
+
+    .gf_list_height_125 li {
+        block-size: 125px;
+    }
+
+    .gf_list_height_150 li {
+        block-size: 150px;
+    }
+
+    .gfield_list > tbody > tr:nth-child(odd) > td,
+    .gfield_list > tbody > tr:nth-child(odd) > th {
+        background: none;
+        border: 0;
+        line-height: normal;
+        padding: 0;
+    }
+
+    .gfield_list > thead > tr > th {
+        border: 0;
+    }
+
+    .gf_scroll_text {
+        block-size: 180px;
+        border: var(--border-weight) solid var(--color-light-grey);
+        overflow: auto;
+        padding: 12px;
+
+        p:last-of-type {
+            margin-block-end: 0;
+        }
+    }
+
+    .gf_hide_ampm {
+        .gfield_time_ampm {
+            display: none;
+        }
+    }
+
+    .gf_hide_charleft {
+        .charleft {
+            display: none;
+        }
+    }
+
+    .gf_page_steps {
+        line-height: 1;
+    }
+
+    .gf_step {
+        display: inline-block;
+        opacity: 0.5;
+    }
+
+    .gf_step_active {
+        opacity: 1;
+    }
+
+    .gf_step_number {
+        font-size: 150%;
+        font-weight: bold;
+    }
+
+    .validation_error {
+        display: block;
+        inline-size: 100%;
+        margin-block: 0 var(--input-margin);
+        margin-inline: 0;
+    }
+
+    .gfield_error {
+        > label,
+        .validation_message {
+            color: var(--color-error);
+        }
+
+        input,
+        textarea,
+        select {
+            border-color: var(--color-error);
+
+            @include on-state(focus) {
+                border-color: var(--color-error);
+            }
+        }
+    }
+
+    .gform_button {
+        inline-size: 100%;
+        border: 1px solid var(--color-accent) !important;
+
+        @include on-state(hover, focus) {
+            border-color: var(--color-navy) !important;;
+        }
+     }
+
+    // Hide the honeypot field from humans
+    .gform_validation_container {
+        display: none;
+        inset-inline-start: -9000px;
+        position: absolute;
+    }
+
+    // Required asterisk
+    .gfield_required {
+        color: var(--color-error);
+        padding-inline-start: 3px;
+    }
+
+    // reCAPTCHA
+    .ginput_recaptcha {
+        display: block;
+        margin-block: 0 var(--line-break);
+        margin-inline: 0;
+        background-color: transparent;
+
+        @include breakpoint(0, xxs) {
+            margin-block: calc(0px - var(--line-break-xs)) var(--line-break-xs);
+            margin-inline: 0;
+            transform: scale(0.75657); // This value will scale the reCAPTCHA to 230px
+            transform-origin: left;
+        }
+    }
+}
+
+
+
+//=======================================================================================================================================================
+// UI datepicker
+//=======================================================================================================================================================
+
+.ui-datepicker {
+    background: var(----color-white);
+    border: var(--border-weight) solid var(--color-mid-grey);
+    border-radius: var(--corners);
+    box-shadow: var(--shadows);
+    display: none; // JS makes this visible on click
+    margin-block-start: 5px;
+    padding: 10px;
+    z-index: 9999 !important; // Force the datepicker to be the highest element on the page at all times
+
+    .ui-datepicker-header {
+        display: flex;
+
+        .ui-datepicker-prev,
+        .ui-datepicker-next {
+            align-items: center;
+            block-size: var(--square-button-size);
+            border-radius: var(--corners);
+            display: flex;
+            inline-size: var(--square-button-size);
+            justify-content: center;
+            min-inline-size: var(--square-button-size);
+
+            &::before {
+                @include pseudo-icon( e011, 10,  var(--color-navy) );
+            }
+
+            span {
+                display: none;
+            }
+
+            @include on-state( hover, focus ) {
+                background-color: var(--color-light-grey);
+            }
+        }
+
+        .ui-datepicker-prev {
+            margin-inline-end: 3px;
+            order: 1;
+
+            &::before {
+                content: '\e010';
+            }
+        }
+
+        .ui-datepicker-next {
+            margin-inline-start: 3px;
+            order: 3;
+        }
+
+        .ui-datepicker-title {
+            display: flex;
+            flex-grow: 1;
+            order: 2;
+
+            select {
+                block-size: var(--square-button-size);
+                display: inline-block;
+                flex-grow: 1;
+                inline-size: auto;
+                margin-block: 0;
+                margin-inline: 3px;
+                min-inline-size: 80px;
+                padding-inline-end: 25px;
+            }
+        }
+    }
+
+    table.ui-datepicker-calendar {
+        border-collapse: collapse;
+        font-size: var(--font-size-body-small);
+        inline-size: 100%;
+        margin-block: var(--line-break-xs) 0;
+        margin-inline: 0;
+
+        th {
+            border: 0;
+            font-weight: bold;
+            padding-block: 8px;
+            padding-inline: 3px;
+            text-align: center;
+        }
+
+        td {
+            border: 0;
+            padding: 2px;
+
+            .ui-state-default {
+                background-color: var(--color-light-grey);
+                border: var(--border-weight) solid transparent;
+                border-radius: 2px;
+                display: block;
+                inline-size: 32px;
+                line-height: 28px;
+                text-align: center;
+                text-decoration: none;
+
+                @include breakpoint(xxs) {
+                    inline-size: 38px;
+                    line-height: 32px;
+                }
+            }
+
+            a.ui-state-default {
+
+                @include on-state(hover, focus) {
+                    background-color: rgba( var(--color-accent), 0.075);
+                }
+            }
+
+            .ui-state-active {
+                background-color: var(----color-white);
+                border: var(--border-weight) solid  var(--color-accent) !important;
+                color:  var(--color-accent);
+            }
+
+            &.ui-datepicker-other-month {
+                opacity: 0.5;
+            }
+        }
+    }
+}

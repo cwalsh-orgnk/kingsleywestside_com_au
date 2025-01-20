@@ -1,0 +1,137 @@
+flynt-component[name='GridImageText'] {
+  .grid {
+    --grid-columns: 1;
+    display: grid;
+    gap: var(--column-gap);
+    grid-template-columns: repeat(var(--grid-columns), minmax(300px, 1fr));
+    list-style: none;
+    padding: 0;
+    --flow-space: 1rem;
+    &[data-max-columns='1'] {
+      @media (min-width: $breakpoint-tablet) {
+        margin-inline: auto;
+        max-inline-size: calc(100% / 2 - var(--flow-space));
+      }
+    }
+
+    &[data-max-columns='2'],
+    &[data-max-columns='3'],
+    &[data-max-columns='4'] {
+      @media (min-width: $breakpoint-tablet) {
+        --grid-columns: 2;
+      }
+
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        max-inline-size: max-content;
+      }
+    }
+
+    &[data-max-columns='3'] {
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        --grid-columns: 3;
+      }
+    }
+
+    &[data-max-columns='4'] {
+      @media (min-width: $breakpoint-tablet-horizontal) {
+        --grid-columns: 4;
+      }
+    }
+
+    a {
+      text-decoration: none;
+
+      @include on-state(hover, focus) {
+
+        figure img {
+          scale: 1.1;
+        }
+
+        .link-icon {
+          &:after {
+            scale: 50;
+          }
+
+          svg path {
+            fill: white;
+          }
+        }
+      }
+    }
+
+    figure {
+      overflow: hidden;
+
+      img {
+        @include transition(scale)
+      }
+    }
+
+    svg path {
+      @include transition(fill)
+    }
+
+    .content {
+      position: relative;
+      color: initial;
+
+      .link-icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 35px;
+        height: 35px;
+        border: 1px solid var(--color-navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        overflow: hidden;
+
+        &:after {
+          position: absolute;
+          left: 50%;
+          right: 50%;
+          width: 1px;
+          height: 1px;
+          background-color: #384b93;
+          z-index: -1;
+          content: "";
+          display: block;
+          transition: scale 0.3s ease-in-out;      
+        }
+      }
+    }
+
+    &[data-card='true']{
+      --column-gap: var(--flow-space);
+
+      .content {
+        position: relative;
+        margin-block-start: 0;
+
+        .link-icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .item {
+    ul {
+      list-style-position: outside;
+      list-style-type: initial;
+      padding-inline-start: 0;
+
+      li {
+        margin-inline-start: 1em;
+      }
+    }
+
+    .figure-image-svg {
+      aspect-ratio: 3 / 2;
+    }
+  }
+}

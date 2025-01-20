@@ -1,0 +1,65 @@
+<flynt-component name="BlockPageHero" class="" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }} data-theme="dark">
+
+  {# Render Fullscreen Splide Slider if heroImages exists #}
+  {% if heroImages|length > 0 %}
+    <section class="splide hero-slider" aria-label="Hero Image Slider">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {% for image in heroImages %}
+            <li class="splide__slide">
+              <img 
+                data-src="{{ image.src }}"
+                class="lazyload"
+                width="{{ image.width }}"
+                height="{{ image.height }}"
+                alt="{{ image.alt|e }}">
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+  {% elseif heroImage %}
+    {# Fallback to single Hero Image if no gallery exists #}
+    <figure class="figure hero-image" data-size="large" data-align="center">
+      {% if heroImage.post_mime_type == 'image/svg+xml' %}
+        <img
+          class="figure-image-svg lazyload"
+          src="{{ placeholderImage(heroImage.width, heroImage.height, 'rgba(125, 125, 125, 0.1)') }}"
+          width="{{ heroImage.width }}"
+          height="{{ heroImage.height }}"
+          data-src="{{ heroImage.src }}"
+          alt="{{ heroImage.alt|e }}">
+      {% else %}
+        <img
+          class="figure-image lazyload"
+          src="{{ heroImage.src|resizeDynamic(768) }}"
+          width="{{ heroImage.width }}"
+          height="{{ heroImage.height }}"
+          srcset="
+            {{ heroImage.src|resizeDynamic(1920) }} 1920w,
+            {{ heroImage.src|resizeDynamic(1600) }} 1600w,
+            {{ heroImage.src|resizeDynamic(1440) }} 1440w,
+            {{ heroImage.src|resizeDynamic(1366) }} 1366w,
+            {{ heroImage.src|resizeDynamic(1024) }} 1024w,
+            {{ heroImage.src|resizeDynamic(768) }} 768w,
+            {{ heroImage.src|resizeDynamic(640) }} 640w"
+          data-sizes="auto"
+          alt="{{ heroImage.alt|e }}">
+      {% endif %}
+      {% if heroImage.caption %}
+        <figcaption>{{ heroImage.caption|e }}</figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+  <div class="text-wrap rellax" >
+    <div class="container">
+      <div data-size="full" data-align="left" class="left-content">
+        {% if contentHtml %}
+          {{ contentHtml|e('wp_kses_post') }}
+        {% else %}
+        <h1> {{ pageTitle }} </h1>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</flynt-component>

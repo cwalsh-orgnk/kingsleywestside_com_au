@@ -1,0 +1,107 @@
+:root,
+[data-theme="reset"] {
+  --color-accent: #384B93;
+  --color-background: hsla(0, 0%, 100%, 1);
+  --color-background-secondary: hsla(358, 78%, 93%, 1);
+  --color-border: hsl(214, 56%, 21%, 1);
+  --color-border-secondary: hsl(0, 0%, 19%, 0.68);
+  --color-text: hsl(222, 38%, 9%, 1);
+  --color-headings: hsl(214, 56%, 21%, 1);
+  --color-text-muted: hsla(0, 0%, 19%, 0.8);
+  --color-error: hsl(343, 98%, 46%);
+}
+
+[data-theme="light"] {
+  --color-background: hsl(212, 76%, 97%);
+  --color-text: hsla(212, 100%, 15%, 1);
+  --color-border: hsla(212, 100%, 15%, 0.7);
+  --color-border-secondary: var(--color-border);
+}
+
+[data-theme="dark"] {
+  --color-accent: #fff;
+  --color-background: #384B93;
+  --color-background-secondary: hsl(228, 56%, 98%, 0.06);
+  --color-border-secondary: hsl(0, 0%, 90%, 0.68);
+  --color-text: hsla(0, 0%, 100%, 1);
+  --color-text-muted: hsl(0, 0%, 100%, 0.8);
+  --color-headings: hsla(0, 0%, 100%, 1);
+  --button-arrow: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2212%22 height%3D%2210%22 viewBox%3D%220 0 12 10%22 fill%3D%22none%22%3E%3Cpath d%3D%22M11.4188 5.58831C11.7442 5.26292 11.7442 4.73448 11.4188 4.40908L7.25326 0.244045C6.92782 -0.0813484 6.39932 -0.0813484 6.07389 0.244045C5.74845 0.569439 5.74845 1.09788 6.07389 1.42327L8.82054 4.16699H0.833109C0.372296 4.16699 0 4.53924 0 5C0 5.46076 0.372296 5.83301 0.833109 5.83301H8.81794L6.07649 8.57673C5.75106 8.90212 5.75106 9.43056 6.07649 9.75595C6.40192 10.0813 6.93043 10.0813 7.25586 9.75595L11.4214 5.59091L11.4188 5.58831Z%22 fill%3D%22%23384B93%22/%3E%3C/svg%3E');
+
+}
+
+$breakpoint-mobile-horizontal: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-horizontal: 1024px;
+$breakpoint-desktop: 1280px;
+
+:root {
+  /**
+   * FOUC can be reduced with good matching fallback font.
+   * https://meowni.ca/font-style-matcher/ or
+   * https://github.com/pixel-point/fontpie
+   */
+  --font-family-heading: "Montserrat", sans-serif;
+  --font-family-text: "Montserrat", sans-serif;
+  --font-family-nav: "Montserrat", sans-serif;
+  --shadow: 4px 5px 100px 20px rgba(0, 0, 0, 0.10);
+  --button-arrow: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2212%22 height%3D%2210%22 viewBox%3D%220 0 12 10%22 fill%3D%22none%22%3E%3Cpath d%3D%22M11.4188 5.58831C11.7442 5.26292 11.7442 4.73448 11.4188 4.40908L7.25326 0.244045C6.92782 -0.0813484 6.39932 -0.0813484 6.07389 0.244045C5.74845 0.569439 5.74845 1.09788 6.07389 1.42327L8.82054 4.16699H0.833109C0.372296 4.16699 0 4.53924 0 5C0 5.46076 0.372296 5.83301 0.833109 5.83301H8.81794L6.07649 8.57673C5.75106 8.90212 5.75106 9.43056 6.07649 9.75595C6.40192 10.0813 6.93043 10.0813 7.25586 9.75595L11.4214 5.59091L11.4188 5.58831Z%22 fill%3D%22white%22/%3E%3C/svg%3E');
+  --font-size-body: 1rem;
+  --font-size-body-small: 1rem;
+  --flow-space: 1.5rem;
+  --column-gap: clamp(2.5rem, 2.5vw + 1.75rem, 3.75rem);
+  --navigation-height: 64px;
+  @include breakpoint(md) {
+    --navigation-height: 104px;
+  }
+  --content-max-width-small: 500px;
+  --content-max-width: 700px;
+  --content-max-width-wide: 900px;
+  --content-max-width-full: 1500px;
+
+  --box-spacing: clamp(1rem, 2.50vw + 0.25rem, 2.25rem);
+  --box-spacing-sm: clamp(1rem, 2.50vw + 0.25rem, 1.5rem);
+  --box-spacing-lg: clamp(1rem, 2.50vw + 1.5rem, 4.5rem);
+  --container-spacing: clamp(1rem, 2.5vw + 0.25rem, 2.25rem);
+  --component-spacing: clamp(3rem, 6.5vw + 1.05rem, 8rem);
+
+  --color-orange: hsla(39, 92%, 58%, 1);
+  --color-red: hsla(358, 75%, 64%, 1);
+  --color-teal: hsla(181, 44%, 59%, 1);
+  --color-navy-light: #2E3E56;
+  --color-navy: #384B93;
+  --button-icon: url('data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2213%22%20viewBox%3D%220%200%2018%2013%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M10.5246%2010.8371C10.1585%2011.2032%2010.1585%2011.7968%2010.5246%2012.1629C10.8907%2012.529%2011.4843%2012.529%2011.8504%2012.1629L16.8504%207.16291C17.0262%206.9871%2017.125%206.74864%2017.125%206.5C17.125%206.25136%2017.0262%206.0129%2016.8504%205.83709L11.8504%200.837088C11.4843%200.470971%2010.8907%200.470971%2010.5246%200.837088C10.1585%201.2032%2010.1585%201.7968%2010.5246%202.16291L13.9242%205.5625H1.8125C1.29473%205.5625%200.875%205.98223%200.875%206.5C0.875%207.01777%201.29473%207.4375%201.8125%207.4375H13.9242L10.5246%2010.8371Z%22%20fill%3D%22%232D3540%22%2F%3E%3C%2Fsvg%3E');
+  --paragraph-spacing: 3rem;
+  --line-spacing: 1.5rem;
+  --color-light-grey: #EAEAEA;
+  --color-mid-grey: #EAEAEA;
+  --default-line-height: 1.44;
+  --color-dark-grey: #bfc1c4;
+  --gutters: 0.75rem;
+  --gutters-sm: 0.375rem;
+  --gutters-lg: 1.55rem;
+  --line-break: 1.25rem;
+  --line-break-xs: calc(var(--line-break) - 0.75rem);
+  --line-break-sm: calc(var(--line-break) - 0.25rem);
+  --line-break-lg: calc(var(--line-break) + 0.25rem);
+  --line-break-xl: calc(var(--line-break) + .75rem);
+  --paragraph-break: 3rem;
+  --focus-ring-weight: 2px;
+  --focus-ring-color: #89b3f3;
+  --focus-ring: 0 0 0 var(--focus-ring-color) var(--focus-ring-color), inset 0 0 0 var(--focus-ring-weight) var(-color-white);
+  --focus-ring-inset: inset 0 0 0 var(--focus-ring-color) var(--focus-ring-color), inset 0 0 0 (var(--focus-ring-weight) * 2) var(--color-white);
+  --corners: 0;
+  --border-weight: 1px;
+  
+  // Shadows
+  --shadows: 0 5px 15px rgba(var(--color-navy), 0.05);
+  --shadows-lg: 0 10px 100px -20px rgba(var(--color-navy), 0.08), 0 20px 50px -20px rgba(var(--color-navy), 0.08);
+  --square-button-size: 2.75rem;
+  --input-height: 3rem;
+  --input-margin: var(--line-break);
+  --input-padding: 1rem;
+  --checkbox-radio-size: 1.75rem;
+  // Font families
+  --social-icons: 'social-icons';
+  --ui-icons: 'ui-icons';
+}

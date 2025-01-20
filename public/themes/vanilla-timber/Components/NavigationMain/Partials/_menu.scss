@@ -1,0 +1,172 @@
+.menu {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  list-style: none;
+  margin-inline-end: -1rem;
+  padding-inline-start: 2rem;
+
+  .link {
+    color: currentColor;
+    display: inline-block;
+    font-size: var(--font-size-body-small);
+    font-weight: 600;
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+
+    &::after {
+      background-color:  #fff;
+      block-size: 0;
+      content: "";
+      display: block;
+      inline-size: 100%;
+      inline-size: 0;
+      inset-block-end: 3px;
+      inset-inline-start: 0;
+      position: absolute;
+      transition: inline-size 0.2s ease-in-out, block-size 0.2s ease-in-out;
+      will-change: inline-size, block-size;
+    }
+
+    &:hover {
+      &::after {
+        block-size: 2px;
+        inline-size: 100%;
+      }
+    }
+  }
+
+  .current-menu-item {
+   >  .link {
+      color: #fff;
+      text-decoration: none;
+
+      &::after {
+        block-size: 2px;
+        inline-size: 100%;
+      }
+    }
+  }
+
+  .submenu {
+    .current-menu-item {
+      background: var(--color-navy);
+
+
+      .link {
+        color: #fff;
+        text-decoration: none;
+  
+        &::after {
+          block-size: 2px;
+          inline-size: 100%;
+        }
+      }
+    }
+  }
+
+  .button {
+    margin-inline-start: var(--flow-space);
+  }
+
+  .item {
+    position: relative;
+
+    &.sub-menu-open{
+      .submenu {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .submenu {
+    background: #fff;
+    border-radius: 0;
+    box-shadow: 10px 11px 16px 0 rgba(0, 0, 0, 0.05);
+    column-count: 2;
+    display: block;
+    inline-size: 100%;
+    inset-block-start: calc(100% + 3px);
+    list-style: none;
+    min-inline-size: calc(420px + var(--flow-space));
+    opacity: 0;
+    overflow: hidden;
+    padding: var(--flow-space);
+    position: absolute;
+    visibility: hidden;
+    z-index: 11111;
+    @include transition(visibility, opacity);
+
+    li a {
+      color: var(--color-navy);
+      inline-size: 100%;
+      @include transition(background-color, color);
+
+      @include on-state(hover, focus) {
+        background-color: var(--color-navy);
+        color: #fff;
+      }
+    }
+
+    .link {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  // Enquiry panel trigger
+	.enquiry-panel-trigger {
+
+    @include breakpoint(0,md) {
+      align-items: center;
+      background-color: transparent;
+      border: initial;
+      border-radius: 100px;
+      color: var(--color-navy);
+      display: inline-flex;
+      font-weight: 700;
+      justify-content: center;
+      letter-spacing: 0;
+      margin: 0;
+      overflow: hidden;
+      padding: 12px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      @include transition(background, color, box-shadow);
+    }
+		
+
+
+		// This button uses the label swapper - see global-elements.scss
+		.label {
+			.icon {
+				display: block;
+
+				@include breakpoint(lg) {
+					display: none;
+				}
+
+				&.contact {
+				}
+
+				&.close {
+					padding: 3px;
+			}
+
+			.text {
+				display: none;
+
+				@include breakpoint(lg) {
+					display: block;
+				}
+			}
+		}
+  }
+}
+}

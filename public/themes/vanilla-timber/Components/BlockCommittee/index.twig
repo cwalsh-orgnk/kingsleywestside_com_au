@@ -1,0 +1,20 @@
+<flynt-component name="BlockCommittee" class="componentSpacing" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="container">
+    <div class="content" data-size="full" data-align="{{ options.align }}" data-text-align="{{ options.textAlign }}">
+      {{ contentHtml|e('wp_kses_post') }}
+
+      {% if committee_members %}
+        <div class="committee-list">
+        {%  for members in committee_members %}
+            <div class="member">  
+              <span class="name h6"> {{ members.name }}</span>
+              <span class="position h6"> {{ members.position }}</span>
+              <a class="email" href="mailto{{ members.email }}"> {{ members.email }}</a>
+            </div>
+        {% endfor %}
+        </div>
+      {%  endif %}
+
+    </div>
+  </div>
+</flynt-component>
