@@ -36,10 +36,6 @@
             ]
         },
         {
-            "type": "vcs",
-            "url": "git@github.com:Organik-Web/vanilla-timber.git"
-        },
-        {
             "type": "composer",
             "url": "https://connect.advancedcustomfields.com"
         },
