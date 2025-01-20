@@ -36,21 +36,6 @@
         {
             "type": "composer",
             "url": "https://connect.advancedcustomfields.com"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "junaidbhura/gravityforms",
-                "version": "2.7.17",
-                "type": "wordpress-plugin",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://www.gravityforms.com/"
-                },
-                "require": {
-                    "junaidbhura/composer-wp-pro-plugins": "*"
-                }
-            }
         }
     ],
     "autoload": {
