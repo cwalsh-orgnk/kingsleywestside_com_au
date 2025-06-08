@@ -1,4 +1,10 @@
 flynt-component[name='BlockCallToAction'] {
+
+  .right-content {
+    @include breakpoint(0,md) {
+      margin-top: var(--flow-space);
+    }
+  }
   @media (min-width: $breakpoint-tablet-horizontal) {
     .container {
       display: flex;

@@ -1,5 +1,6 @@
 flynt-component[name='BlockPageHero'] {
   height: 100vh;
+  height: 100svh; /* Uses 'smallest viewport height' for improved accuracy on mobile */
 
   .splide__arrow {
     align-items: center;
@@ -15,7 +16,7 @@ flynt-component[name='BlockPageHero'] {
     opacity: 1;
     padding: 0;
     position: absolute;
-    bottom: 12px;
+    bottom: 142px;
     top: initial;
     transform: translateY(0); 
     z-index: 1;
@@ -51,7 +52,7 @@ flynt-component[name='BlockPageHero'] {
       display: flex;
       flex-direction: column;
       right: 48px;
-      bottom: 96px;
+      bottom: 226px;
       left: initial;
 
       .splide__pagination__page {
@@ -75,16 +76,17 @@ flynt-component[name='BlockPageHero'] {
 
 
     .text-wrap {
-      position: fixed;
+      position: absolute;
       width: 100%;
       top: initial;
       bottom: 0;
-      bottom: 48px;
+      bottom: 142px;
       padding: 0;
-      z-index: 1111;
+      z-index: 11;
 
       @include breakpoint(md) {
         padding: 48px;
+        bottom: 168px;
       }
 
       > * {
@@ -120,6 +122,14 @@ flynt-component[name='BlockPageHero'] {
 
   .splide__track {
     height: 100%;
+  }
+
+  .section-simple-logos-list {
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    background-color: white;
   }
 
   .splide__list {

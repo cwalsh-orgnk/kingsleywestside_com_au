@@ -4,6 +4,7 @@ namespace Flynt\Components\BlockPageHero;
 
 use Flynt\FieldVariables;
 use Timber\Timber;
+use Flynt\Utils\Options;
 use Timber\Image;
 
 add_filter('Flynt/addComponentData?name=BlockPageHero', function (array $data): array {
@@ -15,6 +16,7 @@ add_filter('Flynt/addComponentData?name=BlockPageHero', function (array $data): 
     }
 
     $data['pageTitle'] = Timber::get_post()->title;
+    $data['globalOptions'] = Options::getGlobal('ThemeSettings');  // Retrieve global options
 
     return $data;
 });
@@ -107,7 +109,7 @@ function getACFLayout(): array
                 'tabs' => 'visual,text',
                 'toolbar' => 'default',
                 'media_upload' => 0,
-                'delay' => 1
+                'delay' => 0
             ],
         ],
         'location' => [

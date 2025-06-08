@@ -5,10 +5,10 @@
   },
   "../../../../shared/orgnk-ui-icons/ui-icons.woff2": {
     "file": "assets/ui-icons-D0YT68Ua.woff2",
-    "src": "assets/fonts/ui-icons.woff2"
+    "src": "../../../../shared/orgnk-ui-icons/ui-icons.woff2"
   },
   "Components/BlockCallToAction/script.js": {
-    "file": "assets/script-Bvk8LTXu.js",
+    "file": "assets/script-dNhDB88N.js",
     "name": "script",
     "src": "Components/BlockCallToAction/script.js",
     "isDynamicEntry": true,
@@ -18,7 +18,7 @@
     ]
   },
   "Components/BlockImageText/script.js": {
-    "file": "assets/script-baEfWt1d.js",
+    "file": "assets/script-BW-un7IY.js",
     "name": "script",
     "src": "Components/BlockImageText/script.js",
     "isDynamicEntry": true,
@@ -33,7 +33,7 @@
     "isDynamicEntry": true
   },
   "Components/BlockPageHero/script.js": {
-    "file": "assets/script-CiA8aqqH.js",
+    "file": "assets/script-tWYuvVPY.js",
     "name": "script",
     "src": "Components/BlockPageHero/script.js",
     "isDynamicEntry": true,
@@ -42,17 +42,29 @@
       "assets/main.js"
     ],
     "css": [
-      "assets/script-CEzdm8Kq.css"
+      "assets/splide-CEzdm8Kq.css"
     ]
   },
   "Components/BlockSplitText/script.js": {
-    "file": "assets/script-dNhDB88N.js",
+    "file": "assets/script-Bvk8LTXu.js",
     "name": "script",
     "src": "Components/BlockSplitText/script.js",
     "isDynamicEntry": true,
     "imports": [
       "_splide.esm-DdfnUrLx.js",
       "_splide-extension-auto-scroll.esm-nNEfMFdb.js"
+    ]
+  },
+  "Components/BlockSquadiMatches/script.js": {
+    "file": "assets/script-DZSb5z5t.js",
+    "name": "script",
+    "src": "Components/BlockSquadiMatches/script.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_splide.esm-DdfnUrLx.js"
+    ],
+    "css": [
+      "assets/splide-CEzdm8Kq.css"
     ]
   },
   "Components/BlockVideoOembed/script.js": {
@@ -65,7 +77,7 @@
     ]
   },
   "Components/GridEventsLatest/script.js": {
-    "file": "assets/script-B4CUlmeL.js",
+    "file": "assets/script-BRWonjcF.js",
     "name": "script",
     "src": "Components/GridEventsLatest/script.js",
     "isDynamicEntry": true,
@@ -75,7 +87,7 @@
     ]
   },
   "Components/GridPostsArchive/script.js": {
-    "file": "assets/script-BRWonjcF.js",
+    "file": "assets/script-B4CUlmeL.js",
     "name": "script",
     "src": "Components/GridPostsArchive/script.js",
     "isDynamicEntry": true,
@@ -128,6 +140,10 @@
     "file": "assets/splide.esm-DdfnUrLx.js",
     "name": "splide.esm"
   },
+  "_splide.min-!~{00l}~.js": {
+    "file": "assets/splide-CEzdm8Kq.css",
+    "src": "_splide.min-!~{00l}~.js"
+  },
   "assets/admin.js": {
     "file": "assets/admin-CbPnJzfJ.js",
     "name": "admin",
@@ -174,14 +190,14 @@
   },
   "assets/fonts/ui-icons.woff2": {
     "file": "assets/ui-icons-D0YT68Ua.woff2",
-    "src": "assets/fonts/ui-icons.woff2"
+    "src": "../../../../shared/orgnk-ui-icons/ui-icons.woff2"
   },
   "assets/images/logo.png": {
     "file": "assets/logo-gu4zK_aM.png",
     "src": "assets/images/logo.png"
   },
   "assets/main.js": {
-    "file": "assets/main-T4Buew35.js",
+    "file": "assets/main-Y0VOrwlT.js",
     "name": "main",
     "src": "assets/main.js",
     "isEntry": true,
@@ -191,6 +207,7 @@
       "Components/BlockLocations/script.js",
       "Components/BlockPageHero/script.js",
       "Components/BlockSplitText/script.js",
+      "Components/BlockSquadiMatches/script.js",
       "Components/BlockVideoOembed/script.js",
       "Components/GridEventsLatest/script.js",
       "Components/GridPostsArchive/script.js",
@@ -200,7 +217,7 @@
     ]
   },
   "assets/main.scss": {
-    "file": "assets/main-Cb0vp3IK.css",
+    "file": "assets/main-CyLn9yMw.css",
     "src": "assets/main.scss",
     "isEntry": true
   },

@@ -1,0 +1,51 @@
+flynt-component[name='BlockHonors'] {
+  
+  .honor-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: end;
+
+    .honor {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      @include breakpoint(xs) {
+        width: calc(50% - 24px);
+      }
+
+      @include breakpoint(sm) {
+        width: calc(33% - 24px);
+      }
+
+      @include breakpoint(md) {
+        width: calc(25% - 24px);
+      }
+
+      .name {
+        border-bottom: 1px solid var(--color-white);
+        margin-top: 0;
+        padding-bottom: 8px;
+      }
+      
+      .icon {
+        width: 30px;
+      }
+
+      .position {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-top: 0;
+        border-bottom: 1px solid var(--color-white);
+      }
+
+      .email {
+        margin-top: 0;
+        padding-top: 8px;
+        text-decoration: none;
+        font-weight: 800;
+      }
+    }
+  }
+}

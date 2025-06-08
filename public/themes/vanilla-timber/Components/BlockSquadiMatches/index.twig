@@ -1,0 +1,18 @@
+<flynt-component name="BlockSquadiMatches" {{ options.theme ? 'data-theme="' ~ options.theme ~ '"' }}>
+  <div class="select-wrap">
+    <!-- Dropdown for teams -->
+    <label for="team-select">Select a Team:</label>
+    <select id="team-select">
+        {% for teamName, params in teams %}
+            <option value="{{ teamName }}" data-params="{{ params | json_encode | e('html_attr') }}">
+                {{ teamName }}
+            </option>
+        {% endfor %}
+    </select>
+  </div>
+
+    <!-- Container for match data -->
+    <div id="match-container">
+        <p>Please select a team to view matches.</p>
+    </div>
+</flynt-component>

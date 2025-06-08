@@ -59,7 +59,7 @@ function getACFLayout(): array
                         'tabs' => 'visual,text',
                         'toolbar' => 'default',
                         'media_upload' => 0,
-                        'delay' => 1
+                        'delay' => 0
                     ],
                     
                 ]
